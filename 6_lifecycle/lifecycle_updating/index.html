@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            crossorigin
+            src="https://unpkg.com/react@16/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <title>Install React JS with CDN Link | KH</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            class Hobi extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { hobi: 'membaca' };
+                }
+
+                shouldComponentUpdate() {
+                    return true;
+                }
+
+                getSnapshotBeforeUpdate(prevProps, prevState) {
+                    window.alert('Hobi sebelumnya ' + prevState.hobi);
+                    return true;
+                }
+
+                componenDidUpdate() {
+                    setTimeout(() => {
+                        window.alert('Hobi sekarang ' + this.state.hobi);
+                    }, 1000);
+                }
+
+                ubahHobi = () => {
+                    this.setState({ hobi: 'melukis' });
+                };
+
+                render() {
+                    return (
+                        <div>
+                            <h1>Hobiku adalah {this.state.hobi} </h1>
+                            <button onClick={this.ubahHobi}>Ubah Hobi</button>
+                        </div>
+                    );
+                }
+            }
+
+            const element = (
+                <div>
+                    <Hobi />
+                </div>
+            );
+            ReactDOM.render(element, document.getElementById('root'));
+        </script>
+    </body>
+</html>
