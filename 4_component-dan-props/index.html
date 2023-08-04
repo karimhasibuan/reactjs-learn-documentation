@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            crossorigin
+            src="https://unpkg.com/react@16/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <title>Install React JS with CDN Link | KH</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            //define component with function
+            function Halo(props) {
+                return <h1>Halo, saya {props.nama}</h1>;
+            }
+            //define component with class
+            class Kenalan extends React.Component {
+                render() {
+                    return (
+                        <div>
+                            <Halo nama={this.props.nama} />
+                            <h2>Saya dari {this.props.kota}</h2>
+                        </div>
+                    );
+                }
+            }
+
+            const element = (
+                <div>
+                    <Kenalan nama='Karim' kota='Jakarta' />
+                    <Kenalan nama='Hakim' kota='Bandung' />
+                </div>
+            );
+            ReactDOM.render(element, document.getElementById('root'));
+        </script>
+    </body>
+</html>
