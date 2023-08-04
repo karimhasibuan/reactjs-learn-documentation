@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            crossorigin
+            src="https://unpkg.com/react@16/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <title>Install React JS with CDN Link | KH</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            class Halo extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        warna: 'red',
+                        salam: 'Halo',
+                    };
+                }
+
+                render() {
+                    return (
+                        <div>
+                            <h2 style={{ color: this.state.warna }}>
+                                {this.state.salam}, saya {this.props.nama}{' '}
+                            </h2>
+                            <button onClick={this.ubahWarna}>
+                                {' '}
+                                Ubah Warna
+                            </button>
+                            <button onClick={this.ubahSalam}>
+                                {' '}
+                                Ubah Salam
+                            </button>
+                        </div>
+                    );
+                }
+
+                ubahWarna = () => {
+                    let warna = ['red', 'blue', 'green', 'purple'];
+                    this.setState({
+                        warna: warna[Math.round(Math.random() * 3)],
+                    });
+                };
+
+                ubahSalam = () => {
+                    let salam = [
+                        'Hai',
+                        'Selamat Pagi',
+                        'Selamat Siang',
+                        'Halo',
+                    ];
+                    this.setState({
+                        salam: salam[Math.round(Math.random() * 3)],
+                    });
+                };
+            }
+
+            const element = (
+                <div>
+                    <Halo nama='Karim' />
+                </div>
+            );
+            ReactDOM.render(element, document.getElementById('root'));
+        </script>
+    </body>
+</html>
