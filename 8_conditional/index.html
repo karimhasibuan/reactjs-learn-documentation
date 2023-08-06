@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <title>Install React JS with CDN Link | KH</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            class Anak extends React.Component {
+                render() {
+                    let $keterangan;
+
+                    if (this.props.umur >= 17) $keterangan = 'sudah dewasa';
+                    else $keterangan = 'belum dewasa';
+
+                    let $kata = this.props.umur >= 17 ? 'sudah' : 'masih';
+
+                    return (
+                        <h3>
+                            {this.props.nama} {$keterangan}, karena {$kata} berumur {this.props.umur}.
+                            {this.props.umur >= 17 && <span> Sudah boleh menggunakan sepeda motor.</span>}
+                        </h3>
+                    );
+                }
+            }
+
+            const element = (
+                <div>
+                    <Anak nama='Karim' umur='15' />
+                </div>
+            );
+            ReactDOM.render(element, document.getElementById('root'));
+        </script>
+    </body>
+</html>
