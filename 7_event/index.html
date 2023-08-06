@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <title>Install React JS with CDN Link | KH</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            class Halo extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        nama: 'KH Hasibuan',
+                    };
+                    this.tampilKota = this.tampilKota.bind(this);
+                }
+
+                tampilUmur = (umur) => {
+                    window.alert('Nama saya ' + this.state.nama + ' berumur ' + umur + ' tahun');
+                };
+
+                tampilKota(kota) {
+                    window.alert('Nama saya ' + this.state.nama + ' berasal dari ' + kota);
+                }
+
+                render() {
+                    return (
+                        <div>
+                            <button onClick={() => this.tampilUmur(19)}> Tampil Umur </button>
+                            <button onClick={this.tampilKota.bind(this, 'Jakarta')}>
+                                Tampil Kota
+                            </button>
+                        </div>
+                    );
+                }
+            }
+
+            const element = (
+                <div>
+                    <Halo />
+                </div>
+            );
+            ReactDOM.render(element, document.getElementById('root'));
+        </script>
+    </body>
+</html>
